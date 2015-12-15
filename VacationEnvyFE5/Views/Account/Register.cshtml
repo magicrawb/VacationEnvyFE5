@@ -1,0 +1,100 @@
+﻿
+@*NON DB VERSION - DELETE AFTER ROUTING IS CHANGED*@
+@model VacationEnvyFE5.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-md-6 col-md-offset-3 tblBorder transDiv">
+        <h3 class="dark-grey text-center">@ViewBag.Title</h3>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control rg_btn" })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.FirstName)
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control rg_btn" })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control rg_btn" })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.LastName)
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control rg_btn" })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control rg_btn" })
+        </div>
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control rg_btn" })
+        </div>
+
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.Gender)<br />
+            <div class="dropdown">
+                @Html.DropDownListFor(m => m.Gender,
+                  new SelectList(
+                         new List<Object>
+                         {
+                             new { value = "male", text = "Male"},
+                             new { value = "female", text = "Female"}
+                         },
+                         "value",
+                         "text",
+                   new { @class = "btn btn-default dropdown-toggle form-control rg_btn" }
+                       ))
+                @*<button class="btn btn-default dropdown-toggle form-control rg_btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Select
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Male</a></li>
+                        <li><a href="#">Female</a></li>
+                    </ul>*@
+            </div>
+        </div>
+
+
+
+        @*<div>
+                <div class="form-group custom-col-4">
+                    <form id="form1">
+                        <input type='file' id="imgInp" class="custom-file-input" />
+                    </form>
+                </div>
+
+                <div class="col-lg-2">
+                    <img id="blah" src="~/Content/Images/placeholder.png" alt="your image" height="75" width="75" />
+                </div>
+            </div>*@
+
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(m => m.Birthday)
+            @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control rg_btn" })
+        </div>
+
+        <div class="form-group text-center">
+            <button class="submit_padding rg_btn" type="submit">
+                Sign Up!
+            </button>
+            <a href="/Account/Login">Login</a>
+
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

@@ -1,0 +1,290 @@
+﻿/*Table styling*/
+.tblBorder {
+    border: 1px solid black;
+    background: #fff;
+}
+
+.transDiv {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.image_center {
+    height:230px;
+    width:230px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.line_separator{
+    height:1px;
+    width: 200px;
+    background:#717171;
+    margin: auto;
+    /*border-bottom:1px solid #313030;*/
+}
+
+.separator_pad {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.tblDataCenter {
+    margin: auto;
+}
+/*End Table Styling*/
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #f5f5f5;
+}
+
+/*Center home/registration*/
+.div_center {
+       position: absolute;
+       top: 100px;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       margin: auto;
+  }
+/*End center*/
+
+/*Registration Styling*/
+label { 
+    float: left; 
+    display: block; 
+    width: 11em; 
+}
+
+.datefield { 
+    display: inline; 
+    padding: 0.3em; 
+    border: inset 1px #CCC; 
+    background: #FFF; 
+    border-radius: 4px;
+    color: #666;
+}
+
+.datefield * { 
+    display: inline-block;
+}
+
+.datefield input { 
+    width: 1.7em; 
+    padding: 0 0.4em; 
+    border: none; 
+    font-size: 100%; 
+    background: none;
+    color: #000;            
+}
+
+.datefield input#year { width:2.5em; }
+.datefield input:focus { outline:none; }
+
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Select Photo';
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}
+
+.custom-col-4 {
+    float: left;
+    width: 30.333333%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.submit_padding {
+    margin-top: 24px;
+    margin-left: 168px;
+}
+
+.rg_btn {
+    background: #aec6cf;
+    border: 1px solid black;
+}
+
+.rg_text {
+    color: #aec6cf;
+}
+/*End registration styling*/
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 155px; /* .push must be the same height as .footer */
+}
+
+.nav-btn {
+    padding-top: 8px;
+}
+
+.nav-profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 75px;
+	-webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+}
+
+.profile-photo {
+    width: 75px;
+    height: 75px;
+}
+
+.rg_navbar {
+    background-color: #aec6cf;
+    border-bottom: 1px solid black;
+}
+
+.rg_blackText {
+    color: black;
+}
+
+.rg-fa-big {
+    font-size: 1.5em !important;
+}
+
+.nav-logo-padding {
+    padding: 0px 15px !important;
+}
+
+.full-map {
+    height: 267px;
+    width: 100%;
+}
+
+.profile-separator {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.border-right {
+    border-right: 1px solid black;
+}
+
+.follow_status {
+    display:inline;
+}
+
+.profile_nav {
+    border-bottom: 1px solid black;
+}
+
+/*For Footer*/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  background-color: #CCC;
+}
+/*End Footer*/
+
+.location_btn {
+    margin-top:32px;
+}
+
+.upload_btn {
+    padding: 15px 50px;
+    margin-top:8px;
+}
+
+.draft_btn {
+    padding:5px 39px;
+    margin-top:5px;
+}
+
+.add_photo {
+    margin-left:15px;
+    padding: 60px;
+    margin-top: 20px;
+}
+
+.album_cover {
+    height:200px;
+    width:200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-photo-padding {
+    padding-top:85px;
+}
+
+.album_title {
+    margin-left:18px;
+    margin-top: 2px;
+
+}
+
+.album_edit {
+    margin-left:-18px;
+    padding-top:6px;
+}
+
+.follow_user_photo {
+    float:left;
+    margin-right:5px;
+    height:50px;
+    width:50px;
+}
+
+.follow_btn {
+    margin-top:-13px;
+}
+
+.follow_search {
+    margin-top:12px;
+}
+
+.btn-no-style {
+    background-color:white;
+    border:none;
+}

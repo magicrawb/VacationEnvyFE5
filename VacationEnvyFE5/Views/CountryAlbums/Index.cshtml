@@ -1,0 +1,53 @@
+﻿@model VacationEnvyFE5.Models.CountryAlbumViewModel
+@*MADE BY ANNA AFTER CONTROLLER EDIT - 7-20*@
+@{
+    ViewBag.Title = "CountryAlbumViewModel";
+}
+<link href="~/Content/custCSS.css" rel="stylesheet" />
+
+<div class="col-md-12 text-center">
+    <h2>@Model.CountryName</h2>
+    <details>
+        <summary>
+            @Model.CountryAlbumDescription
+
+        </summary>
+    </details>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h6>@Model.CityAlbumCount City Albums</h6>
+            <br />
+            <br />
+            
+            @foreach (var item in Model.CityAlbums)
+            {
+                <div class="col-md-3 text-center center-block">
+                   
+                        <a href="~/CityAlbum/Index/@item.CityAlbumId">
+                            <img src="@item.Pictures.FirstOrDefault(p => p.IsCityCoverPic == true).UrlName" class="album_cover" />
+                        </a>
+                   
+                        <div class="col-md-6">
+                            <h4>@item.City.CityName @*@(item.City.State.StateName == null ? "" :"," + item.City.State.StateName)*@ </h4>
+                            <h6>@item.Title </h6>
+                        </div>
+                        <div class="col-md-6 album_edit" style="float:right;">
+                            <a href="">
+                                <span class="fa fa-2x fa-pencil"></span>
+                            </a>
+                            <a href="">
+                                <span class="fa fa-2x fa-remove"></span>
+                            </a>
+                        </div>
+                    </div>
+               
+            }
+
+            
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿@model VacationEnvyFE5.Data.Models.UserFollow
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Profile/Index.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserFollow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FromUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromUser.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToUser.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToUser.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserFollowId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

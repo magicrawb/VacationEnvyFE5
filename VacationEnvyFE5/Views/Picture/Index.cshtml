@@ -1,0 +1,150 @@
+﻿@model VacationEnvyFE5.Models.PictureViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/custCSS.css" rel="stylesheet" />
+
+<div class="col-md-12 text-center">
+        <h2>@Model.CityAlbum.City.CityName</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <br />
+                <div>
+                    <img src="@Model.UrlName" class="picture" />
+                    </a>
+                    <h4>@Model.PictureCaption </h4>
+                    <div class="col-md-6 album_edit">
+                        <a href="">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@**********************************************************MODAL SECTION FFOR PICTURE. NEEDS AN ID TO REFERENCE PICTURE MODAL FOR IT TO DISPLAY************************************************************88*@
+
+@*<div id="pictureModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">      
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-md-12 text-center">
+                        <h2>@Model.CityAlbum.City.CityName</h2>
+                    </div>
+                </div>
+                <div class="container">
+                   
+                        <div class="col-md-12 modal-body">
+                            <div class="col-md-6" style="margin-bottom:20px;">
+                                <br />
+                                <br />
+                                <div>
+                                   
+                                        <img src="@Model.UrlName" class="modal_picture" />
+                                    
+                                    <p><strong>@Model.PictureCaption</strong></p>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<div>
+    <div id="pictureModal" class="modal fade" role="dialog">
+        <div class="col-md-12">
+            <div class="modal fade" id="modal-container-106188" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                ×
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                @Model.CityAlbum.City.CityName
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="@Model.UrlName" class="modal_picture" />
+
+                            <p><strong>@Model.PictureCaption</strong></p>
+
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Close
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@*<div>
+    <div id="followersModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+             Modal content
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">2 Followers</h4>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <div>
+                            <input type="text" placeholder="Search" class="form-control follow_search" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 modal-body">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/divkuro.jpg" class="follow_user_photo" />
+                            <p><strong>David Whaley</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/IMGP5501-Edit_test1.jpg" class="follow_user_photo" />
+                            <p><strong>Keigo Ito</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>*@

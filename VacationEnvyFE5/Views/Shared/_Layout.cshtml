@@ -1,0 +1,100 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @*Begin top navbar*@
+    @*<nav class="navbar navbar-default navbar-fixed-top rg_navbar">
+        <div class="container">
+            <div class="navbar-header" style="float: left">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand nav-logo-padding" href="#">
+                    <div style="height:50px"><img src="~/Content/Images/nav-logo.png" /></div>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-btn">
+                        <button class="btn ">Upload Vacation</button>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-btn">
+                        <input type="text" name="" class="form-control" placeholder="Search" id="" value="">
+                    </li>
+                    <li><a href="../navbar/"><span class="fa-flag fa rg-fa-big"></span></a></li>
+                    <li><a href="../navbar/"><i class="fa-envelope fa rg-fa-big"></i></a></li>
+                    <li>
+                        @if (Model.PicUrl == null)
+                        {
+                            <img class="nav-profile-photo" src="~/Content/Images/placeholder.png" />
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(m => m.PicUrl, new { @class = "nav-profile-photo" })
+                        }
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="rg_blackText">@Html.DisplayFor(m => m.UserName)<span class="caret"></span></div></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Account/Profile">Edit Profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Account/Manage">Edit Account Info</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>/.nav-collapse 
+        </div>
+    </nav>*@
+    @*End top navbar*@
+
+    @Html.Partial("_Navbar")
+
+    @RenderBody()
+
+    @*Start Footer*@
+    <div>
+        <footer>
+            <nav style="background-color:#CCC;" role="navigation" class="navbar-fixed-bottom">
+                <div class="col-md-4 text-left">
+                    <ul class="text-left list-unstyled">
+                        <li><strong>contactus@vacationenvy.com</strong></li>
+                        <li><strong>089-546-3568</strong></li>
+                        <li><strong>&copy; Vacation Envy @DateTime.Now.Year</strong></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-right">
+                    <ul class="list-unstyled list-inline text-right">
+                        <li><h4><strong>FAQ</strong></h4></li>
+                        <li><h4><strong>Terms&Conditions</strong></h4></li>
+                        <li><h4><strong>Privacy Policy</strong></h4></li>
+                    </ul>
+                    @*<p>contactus@vacationenvy.com</p><br />
+                        <p>089-546-3568</p><br />
+                        <p>&copy; Vacation Envy @DateTime.Now.Year</p>*@
+                </div>
+            </nav>
+        </footer>
+    </div>
+    @*End Footer*@
+
+    
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

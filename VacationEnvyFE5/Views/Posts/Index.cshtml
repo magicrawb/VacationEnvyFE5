@@ -1,0 +1,67 @@
+﻿@model IEnumerable<VacationEnvyFE5.Data.Models.Post>
+
+
+@{
+    ViewBag.Title = "Posts Index";
+    //Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h2>Posts Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Post", "Create")
+</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-left">
+            <table class="table" align="center">
+                <tr>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.CityAlbum.Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DatePost)
+                        </th>*@
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+
+
+
+                    @Html.DisplayFor(modelItem => item.CityAlbum.Title)
+                    <br />
+                    <br />
+
+
+
+                    @Html.DisplayFor(modelItem => item.Description)
+                    <br />
+                    <br />
+
+
+
+                    @Html.DisplayFor(modelItem => item.DatePost)
+                    <br />
+                    <br />
+
+
+
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PostId })
+                    <br />
+                    @*@Html.ActionLink("Details", "Details", new { id = item.PostId }) <br />*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostId })
+                    <br />
+                    <br />
+                    <br />
+
+
+                }
+            </table>
+        </div>
+    </div>
+</div>

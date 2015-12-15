@@ -1,0 +1,210 @@
+﻿<script src="../../Scripts/jquery-1.10.2.js"></script>
+<script src="../../Scripts/jquery.validate.js"></script>
+<script src="../../Scripts/modernizr-2.6.2.js"></script>
+<script src="../../Scripts/bootstrap.js"></script>
+<script src="../../Scripts/respond.js"></script>
+<script src="../../Scripts/fbApi.js"></script>
+<script src="../../Scripts/imagePopulate.js"></script>
+<link href="../../Content/Site.css" rel="stylesheet" />
+<link href="../../Content/CustomCSS/cust.css" rel="stylesheet" />
+<link href="../../Content/CustomCSS/full.css" rel="stylesheet" />
+<link href="../../Content/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet" />
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>@Styles.Render("~/Content/css")@Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>@*Begin top navbar*@
+    <nav class="navbar navbar-default navbar-fixed-top rg_navbar">
+        <div class="container">
+            <div class="navbar-header" style="float: left">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand nav-logo-padding" href="#">
+                    <div style="height:50px"><img src="~/Content/Images/nav-logo.png" /></div>
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-btn">
+                        <button class="btn ">Upload Vacation</button>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-btn">
+                        <input type="text" name="" class="form-control" placeholder="Search" id="" value="">
+                    </li>
+                    <li><a href="../navbar/"><span class="fa-flag fa rg-fa-big"></span></a></li>
+                    <li><a href="../navbar/"><i class="fa-envelope fa rg-fa-big"></i></a></li>
+                    <li>@
+if (Model.PicUrl == null)
+                        {
+                        <img class="nav-profile-photo" src="~/Content/Images/placeholder.png" />
+                        }
+                        else
+                        {
+                        @Html.DisplayFor(m => m.PicUrl, new { @class = "nav-profile-photo" })
+                        }
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="rg_blackText">@Html.DisplayFor(m => m.UserName)<span class="caret"></span></div></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Account/Profile">Edit Profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/Account/Manage">Edit Account Info</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>@*End top navbar*@@RenderBody()@*Start Footer*@
+    <div class="rg_navbar">
+        <footer>
+            <nav style="background-color:#CCC;" role="navigation">
+                <div class="col-md-4 text-left">
+                    <ul class="text-left list-unstyled">
+                        <li><strong>contactus@vacationenvy.com</strong></li>
+                        <li><strong>089-546-3568</strong></li>
+                        <li><strong>&copy; Vacation Envy @DateTime.Now.Year</strong></li>
+                    </ul>
+                </div>
+                <div class="col-md-8 text-right">
+                    <ul class="list-unstyled list-inline text-right">
+                        <li><h4><strong>FAQ</strong></h4></li>
+                        <li><h4><strong>Terms&Conditions</strong></h4></li>
+                        <li><h4><strong>Privacy Policy</strong></h4></li>
+                    </ul>@*
+<p>contactus@vacationenvy.com</p><br />
+                        <p>089-546-3568</p><br />
+                        <p>&copy; Vacation Envy @DateTime.Now.Year</p>
+                    *@
+                </div>
+            </nav>
+        </footer>
+    </div>@*End Footer*@@Scripts.Render("~/bundles/jquery")@Scripts.Render("~/bundles/bootstrap")@RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+
+<div class="container">
+    <div class="col-md-4 text-center profile-separator">
+        <div class="center-block">
+            <img src="Content/Images/IMG_4927.JPG" class="profile-photo" />
+            <div class="text-right">
+                <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+            </div>
+        </div>
+        <div class="text-center">cassaroa</div>
+        <hr />
+        <div class="text-center">Follow my travels!</div>
+        <div class="text-center separator_pad"><a href="#">www.mywebsite.com</a></div>
+        <div class="text-center">Texas, USA</div>
+
+        <div class="row center-block separator_pad">
+            <ul class="text-center list-inline">
+                <li class="border-right">
+                    <strong>
+                        80<br />
+                        Followers
+                    </strong>
+                </li>
+                <li class="border-right">
+                    <strong>
+                        56<br />
+                        Following
+                    </strong>
+                </li>
+                <li>
+                    <strong>
+                        7<br />
+                        Countries
+                    </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-8 profile-separator">
+        <img src="Content/Images/Google_map-6.png" class="full-map img img-responsive" />
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#" class="rg_blackText">Vacations</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Bucket List</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Groups</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Events</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/city-lights.jpg" class="album_cover" />
+                    <h3>USA</h3>
+                </div>
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/city-road.jpg" class="album_cover" />
+                    <h3>England</h3>
+                </div>
+                <div class="col-md-3 text-center center-block">
+                    <a href="~/Views/Profile/CountryAlbum/CountryAlbumViewOwn.cshtml">
+                        <img src="~/Content/Images/forest-trees.jpg" class="album_cover" />
+                    </a>
+                    <h3>Italy</h3>
+                </div>
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/sea-sky.jpg" class="album_cover" />
+                    <h3>Germany</h3>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/village-buildings.jpg" class="album_cover" />
+                    <h3>Spain</h3>
+                </div>
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/village-buildings.jpg" class="album_cover" />
+                    <h3>Turkey</h3>
+                </div>
+                <div class="col-md-3 text-center center-block">
+                    <img src="~/Content/Images/village-buildings.jpg" class="album_cover" />
+                    <h3>Chile</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />

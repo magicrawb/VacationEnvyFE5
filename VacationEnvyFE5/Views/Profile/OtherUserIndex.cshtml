@@ -1,0 +1,220 @@
+﻿@model VacationEnvyFE5.Models.ProfileViewModel
+
+@*@{
+        ViewBag.Title = "Index";
+    }*@
+
+@*This is the blank, generic user profile view (viewing the users own profile)*@
+
+<div class="container" style="padding-top: 10px">
+    <div class="col-md-4 text-center profile-separator">
+        <div class="center-block">
+            @if (Model.PicUrl == null)
+            {
+                <img class="profile-photo" src="~/Content/Images/placeholder.png" />
+            }
+            else
+            {
+                @Html.DisplayFor(m => m.PicUrl, new { @class = "profile-photo" })
+            }
+            <div class="text-right">
+                <span class="fa fa-envelope"></span> <!-- Change to message glyphicon for other user profile -->
+            </div>
+        </div>
+        <div class="text-center">@Html.DisplayFor(m => m.UserName)</div>
+        <hr />
+        <div class="text-center">@Html.DisplayFor(m => m.Biography)</div>
+        @*<div class="text-center separator_pad"><a href="#">@Html.DisplayFor(m => m.Website)</a></div>*@
+        <div class="text-center">@Html.DisplayFor(m => m.HomeCountry)</div>
+
+        <div class="row center-block separator_pad">
+            <ul class="text-center list-inline">
+                <li class="border-right">
+                    <a href="~/UserFollows/ShowFollowers/?id=@Model.Id">
+                        <strong>
+                            @Html.DisplayFor(m => m.FollowerCount)<br />
+                            Followers
+
+                        </strong>
+                    </a>
+                </li>
+                <li class="border-right">
+                    <a href="~/UserFollows/ShowFollowings/?id=@Model.Id">
+
+                        <strong>
+
+                            @Html.DisplayFor(m => m.FollowingCount)<br />
+                            Following
+                        </strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="btn-no-style">
+                        <strong>
+                            @Html.DisplayFor(m => m.CountryCount)<br />
+                            Countries
+                        </strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-8 profile-separator">
+        <img src="~/Content/Images/Google_map-6.png" class="full-map img img-responsive" />
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#" class="rg_blackText">Vacations</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Bucket List</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Groups</a>
+                </li>
+                <li>
+                    <a href="#" class="rg_blackText">Events</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid" style="padding-bottom:60px; padding-top:10px;">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row">
+                @foreach (var vacation in Model.CountryAlbums)
+                {
+                    <div class="col-md-3 text-center center-block">
+                        <a href="~/CountryAlbums/Index/@vacation.CountryAlbumId">
+                            <img src="@(vacation.CityAlbums.SelectMany(c=>c.Pictures).Select(c=>c.UrlName).FirstOrDefault() ?? "/Content/images/placeholder.png")" class="album_cover" />
+                        </a>
+
+                        <div>
+                            <ul class="list-inline">
+                                <li><h3>@vacation.Country.CountryName</h3></li>
+                            </ul>
+                        </div>
+
+
+
+
+
+                        @*<div class="col-md-3 text-center center-block">
+                                <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" />
+                                <h6>Fiji</h6>
+                            </div>*@
+                    </div>
+                }
+                <div class="col-md-3 text-center center-block">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+@**********************************************************************************************@
+@***********************************This is the FOLLOWERS modal********************************@
+@**********************************************************************************************@
+<div>
+    <div id="followersModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">2 Followers</h4>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <div>
+                            <input type="text" placeholder="Search" class="form-control follow_search" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 modal-body">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/divkuro.jpg" class="follow_user_photo" />
+                            <p><strong>David Whaley</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/IMGP5501-Edit_test1.jpg" class="follow_user_photo" />
+                            <p><strong>Keigo Ito</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@**********************************************************************************************@
+
+
+
+@**********************************************************************************************@
+@*********************************This is the FOLLOWING modal**********************************@
+@**********************************************************************************************@
+<div>
+    <div id="followingModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">3 Following</h4>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <div>
+                            <input type="text" placeholder="Search" class="form-control follow_search" />
+                        </div>
+                    </div>
+                    <div class="col-md-12 modal-body">
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <a href="~/Views/Profile/Anna'sOutsideViews/AnnaUser.cshtml">
+                                <img src="~/Content/Images/IMG_4927.JPG" class="follow_user_photo" />
+                            </a>
+                            <p><strong>Anna Cassaro</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/divkuro.jpg" class="follow_user_photo" />
+                            <p><strong>David Whaley</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+                        <div class="col-md-6" style="margin-bottom:20px;">
+                            <img src="~/Content/Images/IMGP5501-Edit_test1.jpg" class="follow_user_photo" />
+                            <p><strong>Keigo Ito</strong></p>
+                            <button class="btn btn-default follow_btn">Unfollow</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

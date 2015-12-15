@@ -1,0 +1,19 @@
+﻿@model VacationEnvyFE5.Models.FollowingViewModel
+@{
+    ViewBag.Title = "ShowFollowings";
+}
+
+<h2>You are following:</h2>
+
+<div class="container">
+    @foreach (var item in Model.Followings)
+    {
+        <div class="col-md-3 text-center center-block">
+            <div class="well">
+                <img class="profile-photo" src="~/Content/Images/placeholder.png" /><a href="/Profile/Index/@item.Id"><h3>@item.UserName</h3></a><br />
+                @item.Biography
+
+            </div>
+        </div>
+    }
+</div>

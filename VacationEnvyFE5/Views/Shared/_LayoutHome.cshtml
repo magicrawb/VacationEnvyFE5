@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="full">
+    @RenderBody()
+
+    <nav class="navbar navbar-fixed-bottom" role="navigation">
+        <hr />
+        <div class="col-md-4 text-left rg_text">
+            <ul class="text-left list-unstyled">
+                <li><strong>contactus@vacationenvy.com</strong></li>
+                <li><strong>089-546-3568</strong></li>
+                <li><strong>&copy; Vacation Envy @DateTime.Now.Year</strong></li>
+            </ul>
+        </div>
+        <div class="col-md-8 text-right">
+            <ul class="list-unstyled list-inline text-right rg_text">
+                <li><h4><strong>FAQ</strong></h4></li>
+                <li><h4><strong>Terms&Conditions</strong></h4></li>
+                <li><h4><strong>Privacy Policy</strong></h4></li>
+            </ul>
+            @*<p>contactus@vacationenvy.com</p><br />
+                <p>089-546-3568</p><br />
+                <p>&copy; Vacation Envy @DateTime.Now.Year</p>*@
+        </div>
+    </nav>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

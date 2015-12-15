@@ -1,0 +1,51 @@
+﻿@model VacationEnvyFE5.Models.CountryAlbumViewModel
+
+@{
+    ViewBag.Title = "CountryAlbumViewModel";
+    Layout = "~/Views/Profile/Index.cshtml";
+}
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.)
+        </th>*@
+        <th></th>
+    </tr>
+    
+@foreach (var cAlbum in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityAlbumCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CountryAlbumId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CountryAlbumId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CountryAlbumId })
+        </td>
+    </tr>
+}
+
+</table>
+@*<select>
+    <h2>Test:clickable city albums listed below</h2>
+    @foreach (var item in Model.CityAlbums) 
+      {
+        <option>@item.City.CityName</option>
+        <option>@Model.CityAlbumCoverId</option>
+           
+                @Html.DisplayFor(modelItem => item.CountryName)
+           
+      }
+    </select>*@

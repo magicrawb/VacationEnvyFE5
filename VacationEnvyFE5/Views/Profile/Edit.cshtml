@@ -1,0 +1,88 @@
+﻿@model VacationEnvyFE5.Models.ProfileViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+    <div class="container">
+        <div class="col-md-12 edit_profile_padding">
+            <div class="container col-md-6">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                <div class="col-lg-2">
+                    <img id="blah" src="Content/Images/placeholder.png" alt="your image" height="100" width="100" />
+                </div>
+                <div class="custom-col-4" id="form1">
+                    <input type='file' id="imgInp" class="custom-file-input" />
+                </div>
+                <div class="col-md-6 text-left">
+                    <button class="btn-no-style" data-toggle="modal" data-target="#deleteModal">Delete Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding-bottom:100px">
+        <div class="col-md-12 edit_profile_padding">
+            <div class="container col-md-6">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.UserName)
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.Biography)
+                    @Html.EditorFor(model => model.Biography, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Biography, "", new { @class = "text-danger" })
+                </div>
+                <br />
+                <div class="text-center form-group col-md-3">
+                    @Html.ActionLink("Back to List", "Index")
+                    <input type="submit" class="btn btn-default" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+
+@********************************************************************************@
+@*@using (Html.BeginForm("DeleteFinal", "Profile")) {*@ 
+<div id="deleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-danger">Delete Account?</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger">This will erase your Vacation Envy account and all it's data. Do you wish to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <a href='@Url.Action("Delete", "Profile")'>Yes, delete my account</a> 
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

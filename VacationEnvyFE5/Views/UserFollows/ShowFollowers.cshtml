@@ -1,0 +1,22 @@
+﻿@model VacationEnvyFE5.Models.FollowersViewModel
+@{
+    ViewBag.Title = "ShowFollowers";
+}
+
+<h2>Your followers:</h2>
+
+<div class="container">
+    @foreach (var item in Model.Followers)
+    {
+        <div class="col-md-3 text-center center-block">
+            <div class="well">
+                <img class="profile-photo" src="~/Content/Images/placeholder.png" />
+                <a href="/Profile/Index/@item.Id"><h3>@item.UserName</h3></a><br />
+                <p>@item.Biography</p>
+
+
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,137 @@
+﻿@model VacationEnvyFE5.Models.CityAlbumViewModel
+@*CITY ALBUM PAGE - 7-21*@
+@{
+    ViewBag.Title = "CityAlbumViewModel";
+}
+@*<link href="~/Content/custCSS.css" rel="stylesheet" />*@
+
+<div class="col-md-12 text-center">
+    <h2>@Model.CityName</h2>
+    <details>
+        <summary>
+            @Model.CityDescription
+
+        </summary>
+    </details>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+            <br />
+
+
+            @foreach (var item in Model.ListOfPics)
+            {
+                <div class="col-md-3 text-center center-block">
+                    @*<button class="btn-no-style" data-toggle="modal" data-target="#pictureModal">*@
+                    <a href="#@item.PictureId" role="button" data-toggle="modal">
+                        <img src="@item.UrlName" class="album_cover" />
+                    </a>
+                    
+                    <h5>@item.Caption</h5>
+                    
+                    <div class="tblDataCenter">
+                        <a href="/CityAlbum/Edit/@item.PictureId">
+                            <span class="fa-pencil fa fa-2x"></span>
+                        </a>
+                        <a href="/CityAlbum/Delete/@item.PictureId">
+                            <span class="fa-remove fa fa-2x"></span>
+                        </a>
+                    </div>
+                </div>
+                @*****************************************************************@
+                <div id="@item.PictureId" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Vacation Photo</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <img src="@item.UrlName" class="img-responsive" />
+                                            <div style="float:left;">
+                                                <p>
+                                                    @item.Caption
+                                                </p>
+                                            </div>
+                                            <div style="float:right;">
+                                                <button class="btn-no-style">
+                                                    <span class="fa fa-thumbs-up"></span>
+                                                </button>
+                                                <button class="btn-no-style">
+                                                    <span class="fa fa-share"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!--Photo Comments-->
+                                        @*<div class="col-md-4 tblBorder transDiv separator_pad">
+                                            <div class="col-md-4 separator_pad">
+                                                <!--User Photo-->
+                                                <img src="Content/Images/divkuro.jpg" class="img-responsive" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <!--User Information/Comment-->
+                                                <h4 class="comment_position">
+                                                    <strong>
+                                                        David Whaley
+                                                    </strong>
+                                                </h4>
+                                                <p class="comment_position">
+                                                    This is my comment on your photo. Does it wrap if it's too long?
+                                                    I'm not really sure, so I'll just keep typing!
+                                                </p>
+                                                <a href="" class="comment_position">Report</a>
+                                                <button style="float:right;" class="btn-no-style">
+                                                    <span class="fa fa-reply"></span>
+                                                </button>
+                                            </div>
+                                            </div>*@
+
+                                        <div class="col-md-12" style="margin-top:20px;">
+                                            <a href="" style="float:right;">Add Comment</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            }
+
+            @*<div class="col-md-3 text-center center-block">
+                        <img src="@item.UrlName.FirstOrDefault()" class="album_cover"   />                  //annas part that wasn't working too well
+                        <h5>@item.Caption</h5>
+                        <div class="col-md-6 album_edit">
+                            <a href="">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                }*@
+
+
+        </div>
+    </div>
+</div>
+
+
+
+@*************************************************************PICTURE MODAL************************************************************@

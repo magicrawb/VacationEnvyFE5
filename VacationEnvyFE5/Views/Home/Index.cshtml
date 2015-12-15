@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<div class="col-md-2 col-md-offset-5 tblBorder transDiv">
+    <div id="logo" class="row">
+        <img class="image_center img img-responsive" src="~/Content/Images/vacation-envy-logo.png" />
+    </div>
+    <div class="text-center separator_pad row">
+        <div class="fb-login-button" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+    </div>
+    <div class="text-center separator_pad row">
+        <div class="line_separator"></div>
+    </div>
+    <div class="text-center separator_pad row">
+        <a href="/Account/Register" class="btn btn-default">Sign up with Email</a>
+    </div>
+    <div class="text-center separator_pad row">
+        <a href="/Account/Login">Login</a>
+    </div>
+</div>
